@@ -4,36 +4,36 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Home from './Home';
-import Orbita from './Orbita';
-import Videos from './Videos';
+import Home from './screens/Home';
+import Orbita from './screens/Orbita';
+import Videos from './screens/Videos';
 
 // Estrela 
-import Sol from './Sol';
+import Sol from './stars/Sol';
 
 // Planetas
-import Mercurio from './Mercurio';
-import Venus from './Venus';
-import Terra from './Terra';
-import Marte from './Marte';
-import Jupiter from './Jupiter';
-import Saturno from './Saturno';
-import Urano from './Urano';
-import Netuno from './Netuno';
+import Mercurio from './planets/Mercurio';
+import Venus from './planets/Venus';
+import Terra from './planets/Terra';
+import Marte from './planets/Marte';
+import Jupiter from './planets/Jupiter';
+import Saturno from './planets/Saturno';
+import Urano from './planets/Urano';
+import Netuno from './planets/Netuno';
 
 // Satélites naturais
 
-import Lua from './Lua';
-import Fobos from './Fobos';
-import Deimos from './Deimos';
-import Europa from './Europa';
-import Calisto from './Calisto';
-import Tita from './Tita';
-import Encelado from './Encelado';
-import Umbriel from './Umbriel';
-import Titania from './Titania';
-import Nereida from './Nereida';
-import Larissa from './Larissa';
+import Lua from './moons/Lua';
+import Fobos from './moons/Fobos';
+import Deimos from './moons/Deimos';
+import Europa from './moons/Europa';
+import Calisto from './moons/Calisto';
+import Tita from './moons/Tita';
+import Encelado from './moons/Encelado';
+import Umbriel from './moons/Umbriel';
+import Titania from './moons/Titania';
+import Nereida from './moons/Nereida';
+import Larissa from './moons/Larissa';
 import { View } from 'react-native';
 
 const Stack = createStackNavigator();

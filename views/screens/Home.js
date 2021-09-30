@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, View, KeyboardAvoidingView, Alert, TouchableOpacity } from 'react-native';
-import { css } from '../assets/css/Css';
+import { css } from '../../assets/css/Css';
 
 export default function Home() {
 
