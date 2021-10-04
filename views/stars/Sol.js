@@ -66,8 +66,8 @@ function SolPage() {
   );
 }
 
-export default function Stack() {
-    return <PageStack Screen={SolPage} screenname="Sol" />
+export default function({ setTitle }) {
+    return <PageStack Screen={SolPage} screenname="Sol" setTitle={setTitle} />
 }
 
 const Header = styled.View`

@@ -32,37 +32,46 @@ import Tita from "./moons/Tita";
 import Titania from "./moons/Titania";
 import Umbriel from "./moons/Umbriel";
 import TabBarButton from "../components/tabBarButton.component";
+import AboutUs from "./screens/About";
 
 // Navigation types
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeStack() {
+function HomeStack({ setTitle }) {
   return (
     <Tab.Navigator
       screenOptions={({ route, navigation }) => ({
         tabBarIcon: ({ color, size }) =>
           icons[route.name] ? icons[route.name](color, size) : null,
         tabBarButton: (props) => (
-          <TabBarButton {...props} navigation={navigation} route={route} />
+          <TabBarButton {...props} navigation={navigation} route={route} setTitle={setTitle} />
         ),
+        title: route.name
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Orbita" component={Orbita} />
+      <Tab.Screen name="Astrolab" component={Home} />
+      <Tab.Screen name="Sistema Solar" component={Orbita} />
       <Tab.Screen name="Videos" component={Videos} />
+      <Tab.Screen name="Sobre nós" component={AboutUs} options={{ title: "Sobre nós"}} />
     </Tab.Navigator>
   );
 }
 
+
 function Routes() {
+  const [title, setTitle] = React.useState("Astrolab");
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeStack} />
+      <Stack.Navigator screenOptions={{ title }}>
+        <Stack.Screen name="Home">
+          {props => <HomeStack {...props} setTitle={setTitle} />}
+        </Stack.Screen>
 
         {/* Stars */}
-        <Stack.Screen name="Sol" component={Sol} />
+        <Stack.Screen name="Sol">
+        {props => <Sol {...props} setTitle={setTitle} />}
+        </Stack.Screen>
 
         {/* Planet pages */}
         <Stack.Screen name="Mercurio" component={Mercurio} />
