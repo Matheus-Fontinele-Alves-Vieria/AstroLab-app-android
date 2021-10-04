@@ -5,8 +5,9 @@ import mercurio1 from '../../assets/images/Mercurio_1.jpg';
 import mercurio2 from '../../assets/images/Mercurio_2.jpg';
 import mercurio3 from '../../assets/images/Mercurio_3.jpg';
 import mercurio4 from '../../assets/images/Mercurio_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Mercurio() {
+function Mercurio() {
     const items = [
         {
             key: String(Math.random()),
@@ -73,6 +74,10 @@ export default function Mercurio() {
             </ScrollView>
         </View>
     );
+}
+
+export default function Stack () {
+    return <PageStack Screen={Mercurio} screenname="mercurio" />
 }
 
 const Header = styled.View`

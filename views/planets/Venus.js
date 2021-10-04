@@ -5,8 +5,9 @@ import venus1 from '../../assets/images/Venus_1.jpg';
 import venus2 from '../../assets/images/Venus_2.jpg';
 import venus3 from '../../assets/images/Venus_3.jpg';
 import venus4 from '../../assets/images/Venus_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Venus() {
+function Venus() {
     const items = [
         {
             key: String(Math.random()),
@@ -73,6 +74,10 @@ export default function Venus() {
             </ScrollView>
         </View>
     );
+}
+
+export default function() {
+    return <PageStack Screen={Venus} screenname="Venus" />
 }
 
 const Header = styled.View`

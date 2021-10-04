@@ -1,10 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { PageStack } from "../../component/page.component";
 
-export default function Larissa() {
-    return (
-        <View>
-            <Text>Tela sobre Larissa</Text>
-        </View>
-    );
+function Larissa() {
+  return (
+    <View>
+      <Text>Tela sobre Larissa</Text>
+    </View>
+  );
+}
+
+export default function () {
+  return <PageStack screenname="Larissa" Screen={Larissa} />;
 }

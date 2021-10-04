@@ -6,8 +6,9 @@ import terra1 from '../../assets/images/Terra_1.jpg';
 import terra2 from '../../assets/images/Terra_2.jpg';
 import terra3 from '../../assets/images/Terra_3.jpg';
 import terra4 from '../../assets/images/Terra_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Terra({navigation}) {
+function Terra({navigation}) {
     const [userData] = useState([
         {
             img: 'https://uploaddeimagens.com.br/images/003/151/937/full/Lua.png?1616732793',
@@ -123,6 +124,10 @@ export default function Terra({navigation}) {
             </ScrollView>
         </View>
     );
+}
+
+export default function() {
+    return <PageStack Screen={Terra} screenname="Terra" />
 }
 
 const Header = styled.View`

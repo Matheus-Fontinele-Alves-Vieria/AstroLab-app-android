@@ -6,8 +6,9 @@ import urano1 from '../../assets/images/Urano_1.jpg';
 import urano2 from '../../assets/images/Urano_2.jpg';
 import urano3 from '../../assets/images/Urano_3.jpg';
 import urano4 from '../../assets/images/Urano_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Urano({navigation}) {
+function Urano({navigation}) {
     const [userData] = useState([
         {
             img: 'https://uploaddeimagens.com.br/images/003/175/643/full/Umbriel.png?1617145876',
@@ -129,6 +130,10 @@ export default function Urano({navigation}) {
             </ScrollView>
         </View>
     );
+}
+
+export default function() {
+    return <PageStack Screen={Urano} screenname="Urano" />
 }
 
 const Header = styled.View`

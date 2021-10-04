@@ -6,8 +6,9 @@ import jupiter1 from '../../assets/images/Jupiter_1.jpg';
 import jupiter2 from '../../assets/images/Jupiter_2.jpg';
 import jupiter3 from '../../assets/images/Jupiter_3.jpg';
 import jupiter4 from '../../assets/images/Jupiter_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Jupiter({navigation}) {
+function Jupiter({navigation}) {
     const [userData] = useState([
         {
             img: 'https://uploaddeimagens.com.br/images/003/173/344/full/Europa.png?1617119970',
@@ -129,6 +130,10 @@ export default function Jupiter({navigation}) {
             </ScrollView>
         </View>
     );
+}
+
+export default function() {
+    return <PageStack Screen={Jupiter} screenname="Jupiter" />
 }
 
 const Header = styled.View`

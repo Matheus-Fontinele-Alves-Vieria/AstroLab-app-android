@@ -6,8 +6,9 @@ import marte1 from '../../assets/images/Marte_1.jpg';
 import marte2 from '../../assets/images/Marte_2.jpg';
 import marte3 from '../../assets/images/Marte_3.jpeg';
 import marte4 from '../../assets/images/Marte_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Marte({navigation}) {
+function Marte({navigation}) {
     const [userData] = useState([
         {
             img: 'https://uploaddeimagens.com.br/images/003/162/911/full/Fobos.png?1617036981',
@@ -129,6 +130,10 @@ export default function Marte({navigation}) {
             </ScrollView>
         </View>
     );
+}
+
+export default function(){
+    return <PageStack Screen={Marte} screenname="Marte" />
 }
 
 const Header = styled.View`

@@ -1,10 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { PageStack } from "../../component/page.component";
 
-export default function Umbriel() {
-    return (
-        <View>
-            <Text>Tela sobre Umbriel</Text>
-        </View>
-    );
+function Umbriel() {
+  return (
+    <View>
+      <Text>Tela sobre Umbriel</Text>
+    </View>
+  );
+}
+
+export default function () {
+  return <PageStack screenname="Umbriel" Screen={Umbriel} />;
 }

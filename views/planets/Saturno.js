@@ -6,8 +6,9 @@ import saturno1 from '../../assets/images/Saturno_1.jpg';
 import saturno2 from '../../assets/images/Saturno_2.jpg';
 import saturno3 from '../../assets/images/Saturno_3.jpeg';
 import saturno4 from '../../assets/images/Saturno_4.jpg';
+import { PageStack } from '../../component/page.component';
 
-export default function Saturno({navigation}) {
+function Saturno({navigation}) {
     const [userData] = useState([
         {
             img: 'https://uploaddeimagens.com.br/images/003/175/573/full/Tit%C3%A3.png?1617141538',
@@ -129,6 +130,10 @@ export default function Saturno({navigation}) {
             </ScrollView>
         </View>
     );
+}
+
+export default function() {
+    return <PageStack Screen={Saturno} screenname="Saturno" />
 }
 
 const Header = styled.View`
