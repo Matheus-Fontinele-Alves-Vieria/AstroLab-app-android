@@ -31,22 +31,28 @@ import Nereida from "./moons/Nereida";
 import Tita from "./moons/Tita";
 import Titania from "./moons/Titania";
 import Umbriel from "./moons/Umbriel";
+import TabBarButton from "../components/tabBarButton.component";
 
 // Navigation types
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeStack() {
-    return <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ _, color, size }) =>
+  return (
+    <Tab.Navigator
+      screenOptions={({ route, navigation }) => ({
+        tabBarIcon: ({ color, size }) =>
           icons[route.name] ? icons[route.name](color, size) : null,
+        tabBarButton: (props) => (
+          <TabBarButton {...props} navigation={navigation} route={route} />
+        ),
       })}
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Orbita" component={Orbita} />
       <Tab.Screen name="Videos" component={Videos} />
     </Tab.Navigator>
+  );
 }
 
 function Routes() {
@@ -54,7 +60,7 @@ function Routes() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeStack} />
-        
+
         {/* Stars */}
         <Stack.Screen name="Sol" component={Sol} />
 
@@ -69,18 +75,17 @@ function Routes() {
         <Stack.Screen name="Netuno" component={Netuno} />
 
         {/* Moons */}
-        <Stack.Screen name="Calisto" component={Calisto}/>
-        <Stack.Screen name="Deimos" component={Deimos}/>
-        <Stack.Screen name="Encelado" component={Encelado}/>
-        <Stack.Screen name="Europa" component={Europa}/>
-        <Stack.Screen name="Fobos" component={Fobos}/>
-        <Stack.Screen name="Larissa" component={Larissa}/>
-        <Stack.Screen name="Lua" component={Lua}/>
-        <Stack.Screen name="Nereida" component={Nereida}/>
-        <Stack.Screen name="Tita" component={Tita}/>
-        <Stack.Screen name="Titania" component={Titania}/>
-        <Stack.Screen name="Umbriel" component={Umbriel}/>
-
+        <Stack.Screen name="Calisto" component={Calisto} />
+        <Stack.Screen name="Deimos" component={Deimos} />
+        <Stack.Screen name="Encelado" component={Encelado} />
+        <Stack.Screen name="Europa" component={Europa} />
+        <Stack.Screen name="Fobos" component={Fobos} />
+        <Stack.Screen name="Larissa" component={Larissa} />
+        <Stack.Screen name="Lua" component={Lua} />
+        <Stack.Screen name="Nereida" component={Nereida} />
+        <Stack.Screen name="Tita" component={Tita} />
+        <Stack.Screen name="Titania" component={Titania} />
+        <Stack.Screen name="Umbriel" component={Umbriel} />
       </Stack.Navigator>
     </NavigationContainer>
   );
