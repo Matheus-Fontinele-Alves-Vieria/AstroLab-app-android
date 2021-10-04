@@ -6,7 +6,7 @@ import terra1 from '../../assets/images/Terra_1.jpg';
 import terra2 from '../../assets/images/Terra_2.jpg';
 import terra3 from '../../assets/images/Terra_3.jpg';
 import terra4 from '../../assets/images/Terra_4.jpg';
-import { PageStack } from '../../component/page.component';
+import { PageStack } from '../../components/page.component';
 
 function Terra({navigation}) {
     const [userData] = useState([

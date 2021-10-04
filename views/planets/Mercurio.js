@@ -5,7 +5,7 @@ import mercurio1 from '../../assets/images/Mercurio_1.jpg';
 import mercurio2 from '../../assets/images/Mercurio_2.jpg';
 import mercurio3 from '../../assets/images/Mercurio_3.jpg';
 import mercurio4 from '../../assets/images/Mercurio_4.jpg';
-import { PageStack } from '../../component/page.component';
+import { PageStack } from '../../components/page.component';
 
 function Mercurio() {
     const items = [

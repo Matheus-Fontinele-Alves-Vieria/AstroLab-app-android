@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 // Pages
 import Sol from "./stars/Sol";
-import { icons } from "../component/page.component";
+import { icons } from "../components/page.component";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Pages

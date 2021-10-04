@@ -5,7 +5,7 @@ import venus1 from '../../assets/images/Venus_1.jpg';
 import venus2 from '../../assets/images/Venus_2.jpg';
 import venus3 from '../../assets/images/Venus_3.jpg';
 import venus4 from '../../assets/images/Venus_4.jpg';
-import { PageStack } from '../../component/page.component';
+import { PageStack } from '../../components/page.component';
 
 function Venus() {
     const items = [

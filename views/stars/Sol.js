@@ -5,7 +5,7 @@ import sol1 from "../../assets/images/Sol_1.jpg";
 import sol2 from "../../assets/images/Sol_2.jpg";
 import sol3 from "../../assets/images/Sol_3.jpg";
 import sol4 from "../../assets/images/Sol_4.jpg";
-import { PageStack } from "../../component/page.component";
+import { PageStack } from "../../components/page.component";
 
 function SolPage() {
   const items = [

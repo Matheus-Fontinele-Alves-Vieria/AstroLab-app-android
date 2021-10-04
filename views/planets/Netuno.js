@@ -12,7 +12,7 @@ import netuno1 from "../../assets/images/Netuno_1.jpg";
 import netuno2 from "../../assets/images/Netuno_2.jpg";
 import netuno3 from "../../assets/images/Netuno_3.jpg";
 import netuno4 from "../../assets/images/Netuno_4.jpg";
-import { PageStack } from "../../component/page.component";
+import { PageStack } from "../../components/page.component";
 
 function Netuno({ navigation }) {
   const [userData] = useState([

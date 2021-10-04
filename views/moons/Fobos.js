@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { PageStack } from "../../component/page.component";
+import { PageStack } from "../../components/page.component";
 
 function Fobos() {
   return (

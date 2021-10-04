@@ -6,7 +6,7 @@ import marte1 from '../../assets/images/Marte_1.jpg';
 import marte2 from '../../assets/images/Marte_2.jpg';
 import marte3 from '../../assets/images/Marte_3.jpeg';
 import marte4 from '../../assets/images/Marte_4.jpg';
-import { PageStack } from '../../component/page.component';
+import { PageStack } from '../../components/page.component';
 
 function Marte({navigation}) {
     const [userData] = useState([

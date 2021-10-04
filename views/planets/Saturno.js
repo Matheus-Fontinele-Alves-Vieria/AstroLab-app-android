@@ -6,7 +6,7 @@ import saturno1 from '../../assets/images/Saturno_1.jpg';
 import saturno2 from '../../assets/images/Saturno_2.jpg';
 import saturno3 from '../../assets/images/Saturno_3.jpeg';
 import saturno4 from '../../assets/images/Saturno_4.jpg';
-import { PageStack } from '../../component/page.component';
+import { PageStack } from '../../components/page.component';
 
 function Saturno({navigation}) {
     const [userData] = useState([
