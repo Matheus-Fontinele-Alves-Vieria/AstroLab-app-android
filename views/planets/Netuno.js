@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import netuno1 from '../assets/images/Netuno_1.jpg';
-import netuno2 from '../assets/images/Netuno_2.jpg';
-import netuno3 from '../assets/images/Netuno_3.jpg';
-import netuno4 from '../assets/images/Netuno_4.jpg';
+import netuno1 from '../../assets/images/Netuno_1.jpg';
+import netuno2 from '../../assets/images/Netuno_2.jpg';
+import netuno3 from '../../assets/images/Netuno_3.jpg';
+import netuno4 from '../../assets/images/Netuno_4.jpg';
 
 export default function Netuno({navigation}) {
     const [userData] = useState([

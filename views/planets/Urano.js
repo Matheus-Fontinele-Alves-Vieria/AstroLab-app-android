@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import urano1 from '../assets/images/Urano_1.jpg';
-import urano2 from '../assets/images/Urano_2.jpg';
-import urano3 from '../assets/images/Urano_3.jpg';
-import urano4 from '../assets/images/Urano_4.jpg';
+import urano1 from '../../assets/images/Urano_1.jpg';
+import urano2 from '../../assets/images/Urano_2.jpg';
+import urano3 from '../../assets/images/Urano_3.jpg';
+import urano4 from '../../assets/images/Urano_4.jpg';
 
 export default function Urano({navigation}) {
     const [userData] = useState([

@@ -1,58 +1,55 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Home from './screens/Home';
-import Orbita from './screens/Orbita';
-import Videos from './screens/Videos';
+import Home from "./screens/Home";
+import Orbita from "./screens/Orbita";
+import Videos from "./screens/Videos";
 
-// Estrela 
-import Sol from './stars/Sol';
+// Estrela
+import Sol from "./stars/Sol";
 
 // Planetas
-import Mercurio from './planets/Mercurio';
-import Venus from './planets/Venus';
-import Terra from './planets/Terra';
-import Marte from './planets/Marte';
-import Jupiter from './planets/Jupiter';
-import Saturno from './planets/Saturno';
-import Urano from './planets/Urano';
-import Netuno from './planets/Netuno';
+import Mercurio from "./planets/Mercurio";
+import Venus from "./planets/Venus";
+import Terra from "./planets/Terra";
+import Marte from "./planets/Marte";
+import Jupiter from "./planets/Jupiter";
+import Saturno from "./planets/Saturno";
+import Urano from "./planets/Urano";
+import Netuno from "./planets/Netuno";
 
 // Satélites naturais
 
-import Lua from './moons/Lua';
-import Fobos from './moons/Fobos';
-import Deimos from './moons/Deimos';
-import Europa from './moons/Europa';
-import Calisto from './moons/Calisto';
-import Tita from './moons/Tita';
-import Encelado from './moons/Encelado';
-import Umbriel from './moons/Umbriel';
-import Titania from './moons/Titania';
-import Nereida from './moons/Nereida';
-import Larissa from './moons/Larissa';
-import { View } from 'react-native';
+import Lua from "./moons/Lua";
+import Fobos from "./moons/Fobos";
+import Deimos from "./moons/Deimos";
+import Europa from "./moons/Europa";
+import Calisto from "./moons/Calisto";
+import Tita from "./moons/Tita";
+import Encelado from "./moons/Encelado";
+import Umbriel from "./moons/Umbriel";
+import Titania from "./moons/Titania";
+import Nereida from "./moons/Nereida";
+import Larissa from "./moons/Larissa";
+import { Alert } from "react-native";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function getHeaderTitle(route) {
-  const routeName = route.state
-    ? route.state.routes[route.state.index].name
-    : route.params?.screen || 'Home'
-
+  const routeName = route.state ? route.state.routeNames[route.state.index] : route.name;
   switch (routeName) {
-    case 'Home':
-      return 'AstroLab'
+    case "Home":
+      return "AstroLab";
 
-    case 'Orbita': 
-      return 'Sistema Solar'
+    case "Orbita":
+      return "Sistema Solar";
 
-    case 'Videos':
-      return 'Play'
+    case "Videos":
+      return "Play";
   }
 }
 
@@ -60,72 +57,92 @@ function MainTabNavigator() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        inactiveTintColor: '#C0C0C0',
-        activeTintColor: '#fff',
+        inactiveTintColor: "#C0C0C0",
+        activeTintColor: "#fff",
         style: {
-          backgroundColor: '#4682B4'
-        }
+          backgroundColor: "#4682B4",
+        },
       }}
-
       screenOptions={({ route }) => ({
         tabBarIcon: ({ size }) => {
-          let iconName
-          if(route.name == 'Home') {
-            iconName = 'home-map-marker'
-          } else if(route.name == 'Orbita') {
-            iconName = 'rocket'
-          } else if(route.name == 'Videos') {
-            iconName = 'animation-play'
+          let iconName;
+          if (route.name == "Home") {
+            iconName = "home-map-marker";
+          } else if (route.name == "Orbita") {
+            iconName = "rocket";
+          } else if (route.name == "Videos") {
+            iconName = "animation-play";
           }
 
           return (
-            <MaterialCommunityIcons name={iconName} color={'#fff'} size={size} />
+            <MaterialCommunityIcons
+              name={iconName}
+              color={"#fff"}
+              size={size}
+            />
           );
-        }
+        },
       })}
     >
-      <Tab.Screen name='Home' component={Home} options={{ title: "Home", color: '#fff' }} />
-      <Tab.Screen name='Orbita' component={Orbita} options={{ title: "Sistema Solar", color: '#fff' }} />
-      <Tab.Screen name='Videos' component={Videos} options={{ title: "Animações", color: '#fff' }} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{ title: "Home", color: "#fff" }}
+      />
+      <Tab.Screen
+        name="Orbita"
+        component={Orbita}
+        options={{ title: "Sistema Solar", color: "#fff" }}
+      />
+      <Tab.Screen
+        name="Videos"
+        component={Videos}
+        options={{ title: "Animações", color: "#fff" }}
+      />
     </Tab.Navigator>
-  )
+  );
 }
 
 function MainStackNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Home'
+        initialRouteName="Home"
         screenOptions={{
           gestureEnabled: true,
           headerStyle: {
-            backgroundColor: '#4682B4'
+            backgroundColor: "#4682B4",
           },
           headerTitleStyle: {
-            fontWeight: 'bold'
+            fontWeight: "bold",
           },
-          headerTintColor: '#fff',
-          headerBackTitleVisible: true
+          headerTintColor: "#fff",
+          headerBackTitleVisible: true,
         }}
-
-        headerMode='float'
+        headerMode="float"
       >
-
         <Stack.Screen
-          name='Home'
+          name="Home"
           component={MainTabNavigator}
           options={({ route }) => ({
-            headerTitle: getHeaderTitle(route)
+            title: "Home",
+
+            headerTitle: getHeaderTitle(route),
           })}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Sol"
           component={Sol}
           options={{
             title: "Sol",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -134,8 +151,13 @@ function MainStackNavigator() {
           component={Mercurio}
           options={{
             title: "Mercúrio",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -144,8 +166,13 @@ function MainStackNavigator() {
           component={Venus}
           options={{
             title: "Vênus",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -154,38 +181,58 @@ function MainStackNavigator() {
           component={Terra}
           options={{
             title: "Terra",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Marte"
           component={Marte}
           options={{
             title: "Marte",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Jupiter"
           component={Jupiter}
           options={{
             title: "Júpiter",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Saturno"
           component={Saturno}
           options={{
             title: "Saturno",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -194,18 +241,28 @@ function MainStackNavigator() {
           component={Urano}
           options={{
             title: "Urano",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Netuno"
           component={Netuno}
           options={{
             title: "Netuno",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -214,8 +271,13 @@ function MainStackNavigator() {
           component={Lua}
           options={{
             title: "Lua",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -224,8 +286,13 @@ function MainStackNavigator() {
           component={Fobos}
           options={{
             title: "Fobos",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -234,8 +301,13 @@ function MainStackNavigator() {
           component={Deimos}
           options={{
             title: "Deimos",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -244,8 +316,13 @@ function MainStackNavigator() {
           component={Europa}
           options={{
             title: "Europa",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -254,8 +331,13 @@ function MainStackNavigator() {
           component={Calisto}
           options={{
             title: "Calisto",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -264,8 +346,13 @@ function MainStackNavigator() {
           component={Tita}
           options={{
             title: "Titã",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -274,8 +361,13 @@ function MainStackNavigator() {
           component={Encelado}
           options={{
             title: "Encélado",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -284,8 +376,13 @@ function MainStackNavigator() {
           component={Umbriel}
           options={{
             title: "Umbriel",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -294,8 +391,13 @@ function MainStackNavigator() {
           component={Titania}
           options={{
             title: "Titânia",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -304,8 +406,13 @@ function MainStackNavigator() {
           component={Nereida}
           options={{
             title: "Nereida",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
 
@@ -314,8 +421,13 @@ function MainStackNavigator() {
           component={Larissa}
           options={{
             title: "Larissa",
-            headerStyle: {backgroundColor: '#4682B4'},
-            headerTitleStyle: {fontSize: 35, fontWeight: 'bold', color: '#fff', alignSelf: 'center'}
+            headerStyle: { backgroundColor: "#4682B4" },
+            headerTitleStyle: {
+              fontSize: 35,
+              fontWeight: "bold",
+              color: "#fff",
+              alignSelf: "center",
+            },
           }}
         />
       </Stack.Navigator>

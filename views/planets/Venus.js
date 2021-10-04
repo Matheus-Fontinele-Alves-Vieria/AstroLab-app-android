@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import styled from "styled-components/native";
-import venus1 from '../assets/images/Venus_1.jpg';
-import venus2 from '../assets/images/Venus_2.jpg';
-import venus3 from '../assets/images/Venus_3.jpg';
-import venus4 from '../assets/images/Venus_4.jpg';
+import venus1 from '../../assets/images/Venus_1.jpg';
+import venus2 from '../../assets/images/Venus_2.jpg';
+import venus3 from '../../assets/images/Venus_3.jpg';
+import venus4 from '../../assets/images/Venus_4.jpg';
 
 export default function Venus() {
     const items = [

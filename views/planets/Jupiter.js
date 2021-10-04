@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import jupiter1 from '../assets/images/Jupiter_1.jpg';
-import jupiter2 from '../assets/images/Jupiter_2.jpg';
-import jupiter3 from '../assets/images/Jupiter_3.jpg';
-import jupiter4 from '../assets/images/Jupiter_4.jpg';
+import jupiter1 from '../../assets/images/Jupiter_1.jpg';
+import jupiter2 from '../../assets/images/Jupiter_2.jpg';
+import jupiter3 from '../../assets/images/Jupiter_3.jpg';
+import jupiter4 from '../../assets/images/Jupiter_4.jpg';
 
 export default function Jupiter({navigation}) {
     const [userData] = useState([

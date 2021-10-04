@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import terra1 from '../assets/images/Terra_1.jpg';
-import terra2 from '../assets/images/Terra_2.jpg';
-import terra3 from '../assets/images/Terra_3.jpg';
-import terra4 from '../assets/images/Terra_4.jpg';
+import terra1 from '../../assets/images/Terra_1.jpg';
+import terra2 from '../../assets/images/Terra_2.jpg';
+import terra3 from '../../assets/images/Terra_3.jpg';
+import terra4 from '../../assets/images/Terra_4.jpg';
 
 export default function Terra({navigation}) {
     const [userData] = useState([

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import saturno1 from '../assets/images/Saturno_1.jpg';
-import saturno2 from '../assets/images/Saturno_2.jpg';
-import saturno3 from '../assets/images/Saturno_3.jpeg';
-import saturno4 from '../assets/images/Saturno_4.jpg';
+import saturno1 from '../../assets/images/Saturno_1.jpg';
+import saturno2 from '../../assets/images/Saturno_2.jpg';
+import saturno3 from '../../assets/images/Saturno_3.jpeg';
+import saturno4 from '../../assets/images/Saturno_4.jpg';
 
 export default function Saturno({navigation}) {
     const [userData] = useState([

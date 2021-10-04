@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import styled from "styled-components/native";
-import sol1 from '../assets/images/Sol_1.jpg';
-import sol2 from '../assets/images/Sol_2.jpg';
-import sol3 from '../assets/images/Sol_3.jpg';
-import sol4 from '../assets/images/Sol_4.jpg';
+import sol1 from '../../assets/images/Sol_1.jpg';
+import sol2 from '../../assets/images/Sol_2.jpg';
+import sol3 from '../../assets/images/Sol_3.jpg';
+import sol4 from '../../assets/images/Sol_4.jpg';
 
 export default function Sol() {
     const items = [

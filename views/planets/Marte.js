@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Image, Text } from 'react-native';
 import styled from "styled-components/native";
 import { SwipeListView } from 'react-native-swipe-list-view';
-import marte1 from '../assets/images/Marte_1.jpg';
-import marte2 from '../assets/images/Marte_2.jpg';
-import marte3 from '../assets/images/Marte_3.jpeg';
-import marte4 from '../assets/images/Marte_4.jpg';
+import marte1 from '../../assets/images/Marte_1.jpg';
+import marte2 from '../../assets/images/Marte_2.jpg';
+import marte3 from '../../assets/images/Marte_3.jpeg';
+import marte4 from '../../assets/images/Marte_4.jpg';
 
 export default function Marte({navigation}) {
     const [userData] = useState([
