@@ -11,6 +11,7 @@ const links = {
 	Instagram: "https://www.instagram.com/pet.ifc/",
 	Facebook: "https://www.facebook.com/petifccam",
 	Site: "https://www.pet.ifc-camboriu.edu.br",
+	Youtube: "https://www.youtube.com/c/PETIFCCamboriú",
 };
 
 function AboutUs() {
@@ -44,7 +45,7 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="instagram"
 								size={24}
-								color={"lightblue"}
+								color={"pink"}
 							/>
 						</View>
 						<Text onPress={() => handleClickLink("Instagram")}>
@@ -58,7 +59,7 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="facebook"
 								size={24}
-								color={"lightblue"}
+								color={"darkblue"}
 							/>
 						</View>
 
@@ -73,12 +74,27 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="desktop"
 								size={24}
-								color={"lightblue"}
+								color={"lightgreen"}
 							/>
 						</View>
 
 						<Text onPress={() => handleClickLink("Site")}>
 							Site
+						</Text>
+					</View>
+
+					<View style={styles.links}>
+						<View style={styles.linkIcon}>
+							<FontAwesome
+								style={{ alignSelf: "center" }}
+								name="youtube"
+								size={24}
+								color={"red"}
+							/>
+						</View>
+
+						<Text onPress={() => handleClickLink("Youtube")}>
+							Youtube
 						</Text>
 					</View>
 				</View>
