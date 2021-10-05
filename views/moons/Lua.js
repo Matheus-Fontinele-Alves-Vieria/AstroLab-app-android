@@ -10,6 +10,6 @@ function Lua() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Lua" Screen={Lua} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Lua" Screen={Lua} setTitle={setTitle} />;
 }

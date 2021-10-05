@@ -10,6 +10,6 @@ function Nereida() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Nereida" Screen={Nereida} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Nereida" Screen={Nereida} setTitle={setTitle} />;
 }

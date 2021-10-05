@@ -10,6 +10,6 @@ function Fobos() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Fobos" Screen={Fobos} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Fobos" Screen={Fobos} setTitle={setTitle} />;
 }

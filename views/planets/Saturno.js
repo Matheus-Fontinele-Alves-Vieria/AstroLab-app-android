@@ -132,8 +132,8 @@ function Saturno({navigation}) {
     );
 }
 
-export default function() {
-    return <PageStack Screen={Saturno} screenname="Saturno" />
+export default function({ setTitle }) {
+    return <PageStack Screen={Saturno} screenname="Saturno" setTitle={setTitle} />
 }
 
 const Header = styled.View`

@@ -10,6 +10,6 @@ function Europa() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Europa" Screen={Europa} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Europa" Screen={Europa} setTitle={setTitle} />;
 }

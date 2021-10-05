@@ -132,8 +132,8 @@ function Jupiter({navigation}) {
     );
 }
 
-export default function() {
-    return <PageStack Screen={Jupiter} screenname="Jupiter" />
+export default function({ setTitle }) {
+    return <PageStack Screen={Jupiter} screenname="Jupiter" setTitle={setTitle} />
 }
 
 const Header = styled.View`

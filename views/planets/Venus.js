@@ -76,8 +76,8 @@ function Venus() {
     );
 }
 
-export default function() {
-    return <PageStack Screen={Venus} screenname="Venus" />
+export default function({ setTitle }) {
+    return <PageStack Screen={Venus} screenname="Venus" setTitle={setTitle} />
 }
 
 const Header = styled.View`

@@ -10,6 +10,6 @@ function Umbriel() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Umbriel" Screen={Umbriel} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Umbriel" Screen={Umbriel} setTitle={setTitle} />;
 }

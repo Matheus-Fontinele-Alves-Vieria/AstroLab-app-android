@@ -132,8 +132,8 @@ function Urano({navigation}) {
     );
 }
 
-export default function() {
-    return <PageStack Screen={Urano} screenname="Urano" />
+export default function({ setTitle }) {
+    return <PageStack Screen={Urano} screenname="Urano" setTitle={setTitle} />
 }
 
 const Header = styled.View`

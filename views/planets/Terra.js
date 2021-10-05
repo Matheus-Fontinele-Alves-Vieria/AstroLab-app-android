@@ -68,8 +68,8 @@ function Terra({navigation}) {
                     <Title>Banco de imagens da Terra</Title>
 
                     <Card>
-                        {items.map((item) => (
-                            <View key={item.key}>
+                        {items.map((item, index) => (
+                            <View key={index.toString()}>
                                 <CardImageCover>
                                 <CardImage source={item.img}></CardImage>
                                 <CardDescription>{item.label}</CardDescription>
@@ -84,6 +84,7 @@ function Terra({navigation}) {
 
                     <SwipeListView 
                         data={userData}
+                        keyExtractor={(item, index) => index.toString()}
                         renderItem={(data, rowMap) => (
                         <TouchableWithoutFeedback
                             onPress={() => navigation.navigate(data.item.nameId)}
@@ -126,8 +127,8 @@ function Terra({navigation}) {
     );
 }
 
-export default function() {
-    return <PageStack Screen={Terra} screenname="Terra" />
+export default function({ setTitle }) {
+    return <PageStack Screen={Terra} screenname="Terra" setTitle={setTitle} />
 }
 
 const Header = styled.View`

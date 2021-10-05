@@ -76,8 +76,8 @@ function Mercurio() {
     );
 }
 
-export default function Stack () {
-    return <PageStack Screen={Mercurio} screenname="mercurio" />
+export default function ({ setTitle }) {
+    return <PageStack Screen={Mercurio} screenname="mercurio" setTitle={setTitle} />
 }
 
 const Header = styled.View`

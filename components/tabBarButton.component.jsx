@@ -1,7 +1,9 @@
 import * as React from "react";
+import { useRoute } from "@react-navigation/core";
 import { Animated, TouchableWithoutFeedback } from "react-native";
 
 function TabBarButton({ children, navigation, route, setTitle }) {
+	const routeHook = useRoute();
 	const YAnimated = React.useRef(new Animated.Value(0)).current;
 
 	const animationStart = Animated.timing(YAnimated, {
@@ -20,6 +22,7 @@ function TabBarButton({ children, navigation, route, setTitle }) {
 			animationStart.start();
 			setTimeout(() => animationEnd.start(), 200);
 		} else {
+			console.log(navigation.state)
 			navigation.navigate(route.name);
 			setTitle((_) => route.name);
 		}

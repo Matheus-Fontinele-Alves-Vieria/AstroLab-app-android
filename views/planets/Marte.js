@@ -132,8 +132,8 @@ function Marte({navigation}) {
     );
 }
 
-export default function(){
-    return <PageStack Screen={Marte} screenname="Marte" />
+export default function({ setTitle }){
+    return <PageStack Screen={Marte} screenname="Marte" setTitle={setTitle} />
 }
 
 const Header = styled.View`

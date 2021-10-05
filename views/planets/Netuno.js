@@ -131,8 +131,8 @@ function Netuno({ navigation }) {
   );
 }
 
-export default function() {
-  return <PageStack Screen={Netuno} screenname="Netuno" />;
+export default function({ setTitle }) {
+  return <PageStack Screen={Netuno} screenname="Netuno" setTitle={setTitle} />;
 }
 
 const Header = styled.View`

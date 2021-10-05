@@ -10,6 +10,6 @@ function Larissa() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Larissa" Screen={Larissa} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Larissa" Screen={Larissa} setTitle={setTitle} />;
 }

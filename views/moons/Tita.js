@@ -10,6 +10,6 @@ function Tita() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Tita" Screen={Tita} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Tita" Screen={Tita} setTitle={setTitle} />;
 }

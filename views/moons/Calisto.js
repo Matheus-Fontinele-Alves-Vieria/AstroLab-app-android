@@ -10,6 +10,6 @@ function Calisto() {
     );
 }
 
-export default function(){
-    return <PageStack screenname="Calisto" Screen={Calisto} />
+export default function({ setTitle }){
+    return <PageStack screenname="Calisto" Screen={Calisto} setTitle={setTitle} />
 }

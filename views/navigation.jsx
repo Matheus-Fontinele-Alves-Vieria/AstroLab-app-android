@@ -39,65 +39,131 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeStack({ setTitle }) {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route, navigation }) => ({
-        tabBarIcon: ({ color, size }) =>
-          icons[route.name] ? icons[route.name](color, size) : null,
-        tabBarButton: (props) => (
-          <TabBarButton {...props} navigation={navigation} route={route} setTitle={setTitle} />
-        ),
-        title: route.name
-      })}
-    >
-      <Tab.Screen name="Astrolab" component={Home} />
-      <Tab.Screen name="Sistema Solar" component={Orbita} />
-      <Tab.Screen name="Videos" component={Videos} />
-      <Tab.Screen name="Sobre nós" component={AboutUs} options={{ title: "Sobre nós"}} />
-    </Tab.Navigator>
-  );
+	return (
+		<Tab.Navigator
+			screenOptions={({ route, navigation }) => ({
+				tabBarIcon: ({ color, size }) =>
+					icons[route.name] ? icons[route.name](color, size) : null,
+				tabBarButton: (props) => (
+					<TabBarButton
+						{...props}
+						navigation={navigation}
+						route={route}
+						setTitle={setTitle}
+					/>
+				),
+				title: route.name,
+			})}
+		>
+			<Tab.Screen name="Astrolab" component={Home} />
+			<Tab.Screen name="Sistema Solar" component={Orbita} />
+			<Tab.Screen name="Videos" component={Videos} />
+			<Tab.Screen
+				name="Sobre nós"
+				component={AboutUs}
+				options={{ title: "Sobre nós" }}
+			/>
+		</Tab.Navigator>
+	);
 }
 
-
 function Routes() {
-  const [title, setTitle] = React.useState("Astrolab");
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ title }}>
-        <Stack.Screen name="Home">
-          {props => <HomeStack {...props} setTitle={setTitle} />}
-        </Stack.Screen>
+	const [title, setTitle] = React.useState("Astrolab");
+	return (
+		<NavigationContainer>
+			<Stack.Navigator
+				screenOptions={{ title, headerLeft: null }}
+			>
+				<Stack.Screen name="Home">
+					{(props) => <HomeStack {...props} setTitle={setTitle} />}
+				</Stack.Screen>
 
-        {/* Stars */}
-        <Stack.Screen name="Sol">
-        {props => <Sol {...props} setTitle={setTitle} />}
-        </Stack.Screen>
+				{/* Stars */}
+				<Stack.Screen name="Sol">
+					{(props) => <Sol {...props} setTitle={setTitle} />}
+				</Stack.Screen>
 
-        {/* Planet pages */}
-        <Stack.Screen name="Mercurio" component={Mercurio} />
-        <Stack.Screen name="Venus" component={Venus} />
-        <Stack.Screen name="Terra" component={Terra} />
-        <Stack.Screen name="Marte" component={Marte} />
-        <Stack.Screen name="Jupiter" component={Jupiter} />
-        <Stack.Screen name="Saturno" component={Saturno} />
-        <Stack.Screen name="Urano" component={Urano} />
-        <Stack.Screen name="Netuno" component={Netuno} />
+				{/* Planet pages */}
+				<Stack.Screen name="Mercurio">
+					{(props) => <Mercurio {...props} setTitle={setTitle} />}
+				</Stack.Screen>
 
-        {/* Moons */}
-        <Stack.Screen name="Calisto" component={Calisto} />
-        <Stack.Screen name="Deimos" component={Deimos} />
-        <Stack.Screen name="Encelado" component={Encelado} />
-        <Stack.Screen name="Europa" component={Europa} />
-        <Stack.Screen name="Fobos" component={Fobos} />
-        <Stack.Screen name="Larissa" component={Larissa} />
-        <Stack.Screen name="Lua" component={Lua} />
-        <Stack.Screen name="Nereida" component={Nereida} />
-        <Stack.Screen name="Tita" component={Tita} />
-        <Stack.Screen name="Titania" component={Titania} />
-        <Stack.Screen name="Umbriel" component={Umbriel} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+				<Stack.Screen name="Venus">
+					{(props) => <Venus {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Terra">
+					{(props) => <Terra {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Marte">
+					{(props) => <Marte {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Jupiter">
+					{(props) => <Jupiter {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Saturno">
+					{(props) => <Saturno {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Urano">
+					{(props) => <Urano {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Netuno">
+					{(props) => <Netuno {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				{/* Moons */}
+				<Stack.Screen name="Calisto">
+					{(props) => <Calisto {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Deimos">
+					{(props) => <Deimos {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Encelado">
+					{(props) => <Encelado {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Europa">
+					{(props) => <Europa {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Fobos">
+					{(props) => <Fobos {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Larissa">
+					{(props) => <Larissa {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Lua">
+					{(props) => <Lua {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Nereida">
+					{(props) => <Nereida {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Tita">
+					{(props) => <Tita {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Titania">
+					{(props) => <Titania {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="Umbriel">
+					{(props) => <Umbriel {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
 
 export default Routes;

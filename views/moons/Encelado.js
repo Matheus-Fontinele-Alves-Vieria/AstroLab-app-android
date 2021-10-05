@@ -10,6 +10,6 @@ function Encelado() {
   );
 }
 
-export default function () {
-  return <PageStack screenname="Encelado" Screen={Encelado} />;
+export default function ({ setTitle }) {
+  return <PageStack screenname="Encelado" Screen={Encelado} setTitle={setTitle} />;
 }

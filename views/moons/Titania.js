@@ -10,6 +10,6 @@ function Titania() {
     );
 }
 
-export default function () {
-    return <PageStack screenname="Titania" Screen={Titania} />;
+export default function ({ setTitle }) {
+    return <PageStack screenname="Titania" Screen={Titania} setTitle={setTitle} />;
   }
