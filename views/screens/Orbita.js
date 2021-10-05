@@ -70,6 +70,7 @@ export default function Orbita({ navigation }) {
     <View style={styles.container}>
       <SwipeListView
         data={userData}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={(data, rowMap) => (
           <TouchableWithoutFeedback
             onPress={() => navigation.navigate(data.item.nameId)}

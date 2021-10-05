@@ -156,7 +156,7 @@ export default class Videos extends React.PureComponent {
           style={{ flex: 1 }}
           data={items}
           renderItem={this._renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item, index) => index.toString()}
           onViewableItemsChanged={this._onViewableItemsChanged}
           initialNumToRender={3}
           maxToRenderPerBatch={3}
