@@ -6,6 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import LogoPET from "../../assets/images/LogoPET.png";
 import LogoIFC from "../../assets/images/LogoIFC.png";
 import LogoFNDE from "../../assets/images/LogoFNDE.png";
+import Background from "../../assets/images/background.jpg";
 
 const links = {
 	Instagram: "https://www.instagram.com/pet.ifc/",
@@ -25,6 +26,9 @@ function AboutUs() {
 
 	return (
 		<View style={styles.container}>
+			<View style={{ zIndex: 1, position: 'absolute'}}>
+				<Image source={Background} />
+			</View>
 			<View style={styles.content}>
 				<View style={styles.logoContainer}>
 					<Image style={styles.logoFNDE} source={LogoFNDE} />
@@ -45,10 +49,10 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="instagram"
 								size={24}
-								color={"pink"}
+								color={"red"}
 							/>
 						</View>
-						<Text onPress={() => handleClickLink("Instagram")}>
+						<Text style={styles.linkText} onPress={() => handleClickLink("Instagram")}>
 							Instagram
 						</Text>
 					</View>
@@ -59,11 +63,11 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="facebook"
 								size={24}
-								color={"darkblue"}
+								color={"blue"}
 							/>
 						</View>
 
-						<Text onPress={() => handleClickLink("Facebook")}>
+						<Text style={styles.linkText} onPress={() => handleClickLink("Facebook")}>
 							Facebook
 						</Text>
 					</View>
@@ -74,11 +78,11 @@ function AboutUs() {
 								style={{ alignSelf: "center" }}
 								name="desktop"
 								size={24}
-								color={"lightgreen"}
+								color={"green"}
 							/>
 						</View>
 
-						<Text onPress={() => handleClickLink("Site")}>
+						<Text style={styles.linkText} onPress={() => handleClickLink("Site")}>
 							Site
 						</Text>
 					</View>
@@ -93,10 +97,11 @@ function AboutUs() {
 							/>
 						</View>
 
-						<Text onPress={() => handleClickLink("Youtube")}>
+						<Text style={styles.linkText} onPress={() => handleClickLink("Youtube")}>
 							Youtube
 						</Text>
 					</View>
+				
 				</View>
 			</View>
 		</View>
@@ -108,44 +113,73 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 	},
+	
 	content: {
-		paddingLeft: 15,
+		paddingLeft: 0,
+		position: 'absolute',
+		zIndex: 10
 	},
+
 	title: {
 		fontSize: 36,
 		fontWeight: "700",
+		color: "#fff",
+		paddingLeft: 15
 	},
+
 	paragraph: {
+		color: "#fff",
 		fontSize: 18,
-		paddingBottom: 15,
+		paddingBottom: 0,
+		paddingLeft: 15,
+		marginBottom: 10
 	},
 
 	linksContainer: {
 		flexDirection: "column",
+		paddingLeft: 15
 	},
 
 	links: {
 		flexDirection: "row",
+		alignItems: "center",
+		margin: 3
 	},
+
+	linkText: {
+		color: "#fff",
+		fontSize: 18,
+		marginLeft: 5
+	},	
+
 	linkIcon: {
 		width: 50,
 		height: 50,
+		backgroundColor: "#fff",
+		borderRadius: 25,
+		alignItems: "center",
+		justifyContent: "center"
 	},
+	
 	logoContainer: {
 		width: "100%",
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "flex-start",
 		paddingVertical: 15,
+		backgroundColor: "#FFF"
 	},
+
 	logoFNDE: {
 		margin: 15,
 	},
+
 	logoIFC: {
 		width: 200,
 		height: 100,
 		margin: 15,
 	},
+
 	logoPET: {
 		width: 150,
 		height: 100,

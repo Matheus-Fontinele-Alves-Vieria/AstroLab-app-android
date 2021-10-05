@@ -152,6 +152,7 @@ export default class Videos extends React.PureComponent {
     const { items } = this.state;
     return (
       <View style={styles.container}>
+        
         <FlatList
           style={{ flex: 1 }}
           data={items}

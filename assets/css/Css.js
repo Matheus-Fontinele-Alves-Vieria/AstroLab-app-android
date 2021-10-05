@@ -12,8 +12,12 @@ const css = StyleSheet.create({
   },
  
   view_home1: {
+    width: "100%",
+    height: "100%",
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    zIndex: 10
   },
 
   foguete: {
