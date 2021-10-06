@@ -1,13 +1,22 @@
 import React from "react";
-import { View } from "react-native";
+import {
+	Animated,
+	Dimensions,
+	StyleSheet,
+	TouchableOpacity,
+	View,
+} from "react-native";
 import styled from "styled-components/native";
 import sol1 from "../../assets/images/Sol_1.jpg";
 import sol2 from "../../assets/images/Sol_2.jpg";
 import sol3 from "../../assets/images/Sol_3.jpg";
 import sol4 from "../../assets/images/Sol_4.jpg";
-import { ImageComponent } from "../../components/image.component";
 import { PageStack } from "../../components/page.component";
-
+import { FontAwesome } from "@expo/vector-icons";
+import {
+	GestureHandlerRootView,
+	PinchGestureHandler,
+} from "react-native-gesture-handler";
 function SolPage() {
 	const items = [
 		{
@@ -35,6 +44,20 @@ function SolPage() {
 		},
 	];
 
+	const [visible, setVisible] = React.useState(false);
+	const [selectedImage, setSelectedImage] = React.useState();
+	const animatedScale = React.useRef(new Animated.Value(1)).current;
+
+	const handleClickOpenModal = (image) => {
+		setVisible(true);
+		setSelectedImage(image);
+	};
+	const handleClickCloseModal = () => setVisible(false);
+	const handleGesture = Animated.event(
+		[{ nativeEvent: { scale: animatedScale } }],
+		{ useNativeDriver: true }
+	);
+
 	return (
 		<View>
 			<Header>
@@ -56,14 +79,41 @@ function SolPage() {
 					{items.map((item) => (
 						<View key={item.key}>
 							<CardImageCover>
-								<ImageComponent source={item.img} />
-								{/* <CardImage source={item.img}></CardImage> */}
+								<TouchableOpacity
+									onPress={() =>
+										handleClickOpenModal(item.img)
+									}
+								>
+									<CardImage source={item.img} />
+								</TouchableOpacity>
 								<CardDescription>{item.label}</CardDescription>
 							</CardImageCover>
 						</View>
 					))}
 				</Card>
 			</Container>
+
+			{visible && (
+				<View style={styles.imageContainer}>
+					<TouchableOpacity
+						style={styles.closeModalButton}
+						onPress={handleClickCloseModal}
+					>
+						<FontAwesome name="close" size={24} color="white" />
+					</TouchableOpacity>
+					<GestureHandlerRootView>
+						<PinchGestureHandler onGestureEvent={handleGesture}>
+							<Animated.Image
+								style={[
+									styles.image,
+									{ transform: [{ scale: animatedScale }] },
+								]}
+								source={selectedImage}
+							/>
+						</PinchGestureHandler>
+					</GestureHandlerRootView>
+				</View>
+			)}
 		</View>
 	);
 }
@@ -71,6 +121,31 @@ function SolPage() {
 export default function ({ setTitle }) {
 	return <PageStack Screen={SolPage} screenname="Sol" setTitle={setTitle} />;
 }
+
+const window = Dimensions.get("window");
+
+const styles = StyleSheet.create({
+	imageContainer: {
+		position: "absolute",
+		width: window.width,
+		height: window.height,
+		backgroundColor: "black",
+		opacity: 0.7,
+	},
+
+	closeModalButton: {
+		margin: 12,
+		width: 18,
+		height: 18,
+		alignSelf: "flex-end",
+	},
+
+	image: {
+		width: window.width,
+		height: window.height,
+		resizeMode: "contain",
+	},
+});
 
 const Header = styled.View`
 	margin-top: 10px;

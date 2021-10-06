@@ -33,6 +33,7 @@ import Titania from "./moons/Titania";
 import Umbriel from "./moons/Umbriel";
 import TabBarButton from "../components/tabBarButton.component";
 import AboutUs from "./screens/About";
+import ImageDetails from "./screens/imageDetails";
 
 // Navigation types
 const Stack = createStackNavigator();
@@ -76,6 +77,10 @@ function Routes() {
 			>
 				<Stack.Screen name="Home">
 					{(props) => <HomeStack {...props} setTitle={setTitle} />}
+				</Stack.Screen>
+
+				<Stack.Screen name="ImageDetails">
+					{props => <ImageDetails {...props} setTitle={setTitle} />}
 				</Stack.Screen>
 
 				{/* Stars */}
