@@ -66,15 +66,16 @@ function Routes() {
 					<Stack.Screen name={page.screenname} key={String(index)}>
 						{(props) => (
 							<Page
+								screenname={page.screenname}
 								description={page.description}
 								images={page.images}
-								screenname={page.screenname}
+								moons={page.moons}
 							/>
 						)}
 					</Stack.Screen>
 				))}
 
-				{ /*
+				{/*
 				<Stack.Screen name="Mercurio">
 					{(props) => <Mercurio {...props} setTitle={setTitle} />}
 				</Stack.Screen>
@@ -149,7 +150,7 @@ function Routes() {
 
 				<Stack.Screen name="Umbriel">
 					{(props) => <Umbriel {...props} setTitle={setTitle} />}
-				</Stack.Screen> */ } 
+				</Stack.Screen> */}
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

@@ -379,8 +379,7 @@ export const pagesData = [
 		moons: [
 			{
 				img: "https://uploaddeimagens.com.br/images/003/151/937/full/Lua.png?1616732793",
-				name: "Lua",
-				nameId: "Lua",
+				label: "Lua",
 			},
 		],
 	},

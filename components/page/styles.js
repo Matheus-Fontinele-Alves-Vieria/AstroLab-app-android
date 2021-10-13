@@ -5,7 +5,7 @@ import {
 } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
 	width: 100%;
 	height: 100%;
     background-color: black;
@@ -23,9 +23,12 @@ export const Content = styled.View`
 `;
 
 export const Header = styled.View`
-	width: 100%;
-	height: 300px;
-	padding: 20px 0px;
+	width: auto;
+	height: auto;
+	margin: 15px 4px;
+	padding: 10px 0px;
+	border-radius: 4px;
+	background-color: black;
 `;
 
 export const Description = styled.Text`

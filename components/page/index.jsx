@@ -10,26 +10,10 @@ import SolarSystem from "../../views/screens/SolarSystem";
 import Videos from "../../views/screens/Videos";
 
 // Imports for Page components
-import {
-	Background,
-	Container,
-	Content,
-	Description,
-	Header,
-	Image,
-	ImageContainer,
-	ImageTitle,
-	ListImages,
-	Modal,
-	ModalCloseButtonModal,
-	ModalContent,
-	ModalGestureHandlerRootView,
-	ModalImage,
-	ModalPinchGestureHandler,
-} from "./styles";
+import * as Components from "./styles";
 import TabBarButton from "../tarBarButton";
 import { Animated } from "react-native";
-function Page({ description, images }) {
+function Page({ description, images, moons }) {
 	const [visible, setVisible] = React.useState(false);
 	const [image, setImage] = React.useState({});
 
@@ -39,6 +23,7 @@ function Page({ description, images }) {
 		setImage(image);
 		setVisible(true);
 	};
+
 	const handleGestureEvent = Animated.event(
 		[{ nativeEvent: { scale: animatedScale } }],
 		{ useNativeDriver: true }
@@ -46,55 +31,88 @@ function Page({ description, images }) {
 
 	if (visible) {
 		return (
-			<Modal>
-				<ModalContent>
-					<ModalCloseButtonModal
+			<Components.Modal>
+				<Components.ModalContent>
+					<Components.ModalCloseButtonModal
 						children={icons.Close("white", 32)}
 						onPress={() => setVisible(false)}
 					/>
-					<ModalGestureHandlerRootView>
-						<ModalPinchGestureHandler onGestureEvent={handleGestureEvent}>
-							<ModalImage
+					<Components.ModalGestureHandlerRootView>
+						<Components.ModalPinchGestureHandler
+							onGestureEvent={handleGestureEvent}
+						>
+							<Components.ModalImage
 								style={{
 									transform: [{ scale: animatedScale }],
 								}}
-								source={image}
+								source={
+									typeof image === "string"
+										? { uri: image }
+										: image
+								}
 							/>
-						</ModalPinchGestureHandler>
-					</ModalGestureHandlerRootView>
-				</ModalContent>
-			</Modal>
+						</Components.ModalPinchGestureHandler>
+					</Components.ModalGestureHandlerRootView>
+				</Components.ModalContent>
+			</Components.Modal>
 		);
 	}
 
 	return (
-		<Container>
-			<Background source={images[3].img}/>
-			<Content>
-				<Header>
+		<Components.Container>
+			<Components.Background source={images[1].img} />
+			<Components.Content>
+				<Components.Header>
 					{description.map((desc, index) => (
-						<Description key={String(index)}>{desc}</Description>
+						<Components.Description key={String(index)}>
+							{desc}
+						</Components.Description>
 					))}
-				</Header>
+				</Components.Header>
 
-				<ListImages
+				<Components.Header>
+					<Components.Description>Imagens</Components.Description>
+				</Components.Header>
+
+				<Components.ListImages
 					data={images}
 					horizontal
 					showsHorizontalScrollIndicator={false}
 					keyExtractor={(_, index) => String(index)}
 					renderItem={({ item }) => (
-						<ImageContainer
+						<Components.ImageContainer
 							onPress={() => handleClickModalOpen(item.img)}
 						>
-							<Image source={item.img} />
-							<ImageTitle numberOfLines={1}>
+							<Components.Image source={item.img} />
+							<Components.ImageTitle numberOfLines={1}>
 								{item.label}
-							</ImageTitle>
-						</ImageContainer>
+							</Components.ImageTitle>
+						</Components.ImageContainer>
 					)}
-				></ListImages>
-			</Content>
-		</Container>
+				/>
+
+				<Components.Header>
+					<Components.Description>Lua(s)</Components.Description>
+				</Components.Header>
+
+				<Components.ListImages
+					data={moons}
+					horizontal
+					showsHorizontalScrollIndicator={false}
+					keyExtractor={(_, index) => String(index)}
+					renderItem={({ item }) => (
+						<Components.ImageContainer
+							onPress={() => handleClickModalOpen(item.img)}
+						>
+							<Components.Image source={{ uri: item.img }} />
+							<Components.ImageTitle numberOfLines={1}>
+								{item.label}
+							</Components.ImageTitle>
+						</Components.ImageContainer>
+					)}
+				/>
+			</Components.Content>
+		</Components.Container>
 	);
 }
 
@@ -129,10 +147,10 @@ function PageStack({ children, screenname }) {
 	);
 }
 
-export default function ({ screenname, description, images }) {
+export default function ({ screenname, description, images, moons }) {
 	return (
 		<PageStack screenname={screenname}>
-			<Page description={description} images={images} />
+			<Page description={description} images={images} moons={moons} />
 		</PageStack>
 	);
 }
