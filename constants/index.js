@@ -466,3 +466,27 @@ export const pagesData = [
 		moons: [],
 	},
 ];
+
+export const videosData = [
+	{
+		id: 0,
+		url:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+		poster:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg',
+	  },
+	  {
+		id: 1,
+		url:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+		poster:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg',
+	  },
+	  {
+		id: 2,
+		url:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+		poster:
+		  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg',
+	  },
+]
