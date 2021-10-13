@@ -1,16 +1,6 @@
 import * as React from "react";
 import { dataSolarSystem } from "../../../constants";
-import {
-	BackgroundContainer,
-	BackgroundImage,
-	Container,
-	Content,
-	PlanetImage,
-	PlanetItem,
-	PlanetItemContainer,
-	PlanetLists,
-	PlanetTitle,
-} from "./styles";
+import * as Components from "./styles";
 import { useNavigation } from "@react-navigation/core";
 
 import Background from "../../../assets/images/background.jpg";
@@ -27,26 +17,26 @@ function SolarSystem() {
 	});
 
 	return (
-		<Container>
-			<Content>
-				<BackgroundContainer>
-					<BackgroundImage source={Background} />
-				</BackgroundContainer>
+		<Components.Container>
+			<Components.Content>
+				<Components.BackgroundContainer>
+					<Components.BackgroundImage source={Background} />
+				</Components.BackgroundContainer>
 
-				<PlanetLists
+				<Components.PlanetLists
 					data={solarSystemData}
 					keyExtractor={(_, index) => String(index)}
 					renderItem={({ item }) => (
-						<PlanetItemContainer onPress={() => handleClickPlanet(item.nameId)}>
-							<PlanetItem>
-								<PlanetImage source={{uri: item.img}} />
-								<PlanetTitle>{item.name}</PlanetTitle>
-							</PlanetItem>
-						</PlanetItemContainer>
+						<Components.PlanetItemContainer onPress={() => handleClickPlanet(item.nameId)}>
+							<Components.PlanetItem>
+								<Components.PlanetImage source={{uri: item.img}} />
+								<Components.PlanetTitle>{item.name}</Components.PlanetTitle>
+							</Components.PlanetItem>
+						</Components.PlanetItemContainer>
 					)}
-				></PlanetLists>
-			</Content>
-		</Container>
+				></Components.PlanetLists>
+			</Components.Content>
+		</Components.Container>
 	);
 }
 

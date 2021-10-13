@@ -1,19 +1,6 @@
 import * as React from "react";
 
-import {
-	BackgroundContainer,
-	Container,
-	Content,
-	Icon,
-	Image,
-	LinkText,
-	LinksContainer,
-	LinksContent,
-	LogoContainer,
-	Paragraph,
-	Title,
-    LogoImage,
-} from "./styles";
+import * as Components from "./styles";
 import { FontAwesome } from "@expo/vector-icons";
 import { Alert, Linking, TouchableOpacity, View } from "react-native";
 
@@ -51,29 +38,29 @@ function About() {
 
 	return (
 		<View>
-			<BackgroundContainer>
-				<Image source={Background} />
-			</BackgroundContainer>
+			<Components.BackgroundContainer>
+				<Components.Image source={Background} />
+			</Components.BackgroundContainer>
 
-			<Content>
-				<LogoContainer>
+			<Components.Content>
+				<Components.LogoContainer>
                     {logos.map(logo => (
-                        <LogoImage resizeMode="contain" source={logo} />
+                        <Components.LogoImage resizeMode="contain" source={logo} />
                     ))}
-                </LogoContainer>
+                </Components.LogoContainer>
 
-				<Title>MATHEUS ESCREVE O TITULO</Title>
+				<Components.Title>MATHEUS ESCREVE O TITULO</Components.Title>
 
 				{icons.map((icon, index) => (
-					<LinksContent
+					<Components.LinksContent
 						key={String(index)}
 						onPress={() => handleClickLink(icon.link)}
 					>
-						<Icon children={icon.Icon()} />
-						<LinkText>{icon.title}</LinkText>
-					</LinksContent>
+						<Components.Icon children={icon.Icon()} />
+						<Components.LinkText>{icon.title}</Components.LinkText>
+					</Components.LinksContent>
 				))}
-			</Content>
+			</Components.Content>
 		</View>
 	);
 }

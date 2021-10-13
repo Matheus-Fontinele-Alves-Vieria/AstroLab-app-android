@@ -13,7 +13,6 @@ import SolarSystem from "./screens/SolarSystem";
 import Videos from "./screens/Videos";
 import TabBarButton from "../components/tarBarButton";
 import AboutUs from "./screens/About/index";
-import ImageDetails from "./screens/imageDetails";
 import Page from "../components/page";
 
 // Navigation types
@@ -58,13 +57,9 @@ function Routes() {
 					{(props) => <HomeStack {...props} setTitle={setTitle} />}
 				</Stack.Screen>
 
-				<Stack.Screen name="ImageDetails">
-					{(props) => <ImageDetails {...props} setTitle={setTitle} />}
-				</Stack.Screen>
-
 				{pagesData.map((page, index) => (
 					<Stack.Screen name={page.screenname} key={String(index)}>
-						{(props) => (
+						{() => (
 							<Page
 								screenname={page.screenname}
 								description={page.description}
