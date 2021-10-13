@@ -4,36 +4,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 // Pages
-import Sol from "./stars/Sol";
-import { icons } from "../components/page.component";
+import { icons, pagesData } from "../constants/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Pages
-import Home from "./screens/Home";
-import Orbita from "./screens/Orbita";
+import Home from "./screens/Home/index";
+import SolarSystem from "./screens/SolarSystem";
 import Videos from "./screens/Videos";
-import Mercurio from "./planets/Mercurio";
-import Netuno from "./planets/Netuno";
-import Venus from "./planets/Venus";
-import Terra from "./planets/Terra";
-import Marte from "./planets/Marte";
-import Jupiter from "./planets/Jupiter";
-import Saturno from "./planets/Saturno";
-import Urano from "./planets/Urano";
-import Calisto from "./moons/Calisto";
-import Deimos from "./moons/Deimos";
-import Encelado from "./moons/Encelado";
-import Europa from "./moons/Europa";
-import Fobos from "./moons/Fobos";
-import Larissa from "./moons/Larissa";
-import Lua from "./moons/Lua";
-import Nereida from "./moons/Nereida";
-import Tita from "./moons/Tita";
-import Titania from "./moons/Titania";
-import Umbriel from "./moons/Umbriel";
-import TabBarButton from "../components/tabBarButton.component";
-import AboutUs from "./screens/About";
+import TabBarButton from "../components/tarBarButton";
+import AboutUs from "./screens/About/index";
 import ImageDetails from "./screens/imageDetails";
+import Page from "../components/page";
 
 // Navigation types
 const Stack = createStackNavigator();
@@ -57,7 +38,7 @@ function HomeStack({ setTitle }) {
 			})}
 		>
 			<Tab.Screen name="Astrolab" component={Home} />
-			<Tab.Screen name="Sistema Solar" component={Orbita} />
+			<Tab.Screen name="Sistema Solar" component={SolarSystem} />
 			<Tab.Screen name="Videos" component={Videos} />
 			<Tab.Screen
 				name="Sobre nós"
@@ -72,23 +53,28 @@ function Routes() {
 	const [title, setTitle] = React.useState("Astrolab");
 	return (
 		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{ title, headerLeft: null }}
-			>
+			<Stack.Navigator screenOptions={{ title, headerLeft: null }}>
 				<Stack.Screen name="Home">
 					{(props) => <HomeStack {...props} setTitle={setTitle} />}
 				</Stack.Screen>
 
 				<Stack.Screen name="ImageDetails">
-					{props => <ImageDetails {...props} setTitle={setTitle} />}
+					{(props) => <ImageDetails {...props} setTitle={setTitle} />}
 				</Stack.Screen>
 
-				{/* Stars */}
-				<Stack.Screen name="Sol">
-					{(props) => <Sol {...props} setTitle={setTitle} />}
-				</Stack.Screen>
+				{pagesData.map((page, index) => (
+					<Stack.Screen name={page.screenname} key={String(index)}>
+						{(props) => (
+							<Page
+								description={page.description}
+								images={page.images}
+								screenname={page.screenname}
+							/>
+						)}
+					</Stack.Screen>
+				))}
 
-				{/* Planet pages */}
+				{ /*
 				<Stack.Screen name="Mercurio">
 					{(props) => <Mercurio {...props} setTitle={setTitle} />}
 				</Stack.Screen>
@@ -121,7 +107,6 @@ function Routes() {
 					{(props) => <Netuno {...props} setTitle={setTitle} />}
 				</Stack.Screen>
 
-				{/* Moons */}
 				<Stack.Screen name="Calisto">
 					{(props) => <Calisto {...props} setTitle={setTitle} />}
 				</Stack.Screen>
@@ -164,8 +149,7 @@ function Routes() {
 
 				<Stack.Screen name="Umbriel">
 					{(props) => <Umbriel {...props} setTitle={setTitle} />}
-				</Stack.Screen>
-
+				</Stack.Screen> */ } 
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

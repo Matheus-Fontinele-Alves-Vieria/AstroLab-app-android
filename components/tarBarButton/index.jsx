@@ -2,6 +2,10 @@ import * as React from "react";
 import { useRoute } from "@react-navigation/core";
 import { Animated, TouchableWithoutFeedback } from "react-native";
 
+
+import * as Components from "./styles";
+
+
 function TabBarButton({ children, navigation, route, setTitle }) {
 	const routeHook = useRoute();
 	const YAnimated = React.useRef(new Animated.Value(0)).current;
@@ -29,8 +33,8 @@ function TabBarButton({ children, navigation, route, setTitle }) {
 	};
 
 	return (
-		<TouchableWithoutFeedback onPress={handlePressBottom}>
-			<Animated.View
+		<Components.ButtonContainer onPress={handlePressBottom}>
+			<Components.ButtonContent
 				style={{
 					flex: 1,
 					justifyContent: "center",
@@ -39,8 +43,8 @@ function TabBarButton({ children, navigation, route, setTitle }) {
 				}}
 			>
 				{children}
-			</Animated.View>
-		</TouchableWithoutFeedback>
+			</Components.ButtonContent>
+		</Components.ButtonContainer >
 	);
 }
 
