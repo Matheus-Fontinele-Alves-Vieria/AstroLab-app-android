@@ -26,7 +26,6 @@ function TabBarButton({ children, navigation, route, setTitle }) {
 			animationStart.start();
 			setTimeout(() => animationEnd.start(), 200);
 		} else {
-			console.log(navigation.state)
 			navigation.navigate(route.name);
 			setTitle((_) => route.name);
 		}

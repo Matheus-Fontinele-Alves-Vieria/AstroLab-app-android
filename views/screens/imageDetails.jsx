@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, View } from "react-native";
-import { PageStack } from "../../components/page.component";
+import { PageStack } from "../../components/pageStack";
 
 function ImageDetails({ navigation, route }) {
     console.log(Object.keys(navigation), route)

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PageStack } from "../../../components/page.component";
+import { PageStack } from "../../../components/pageStack";
 import {
 	Container,
 	Content,

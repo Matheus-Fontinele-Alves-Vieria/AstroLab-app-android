@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { PageStack } from '../../components/page.component';
+import { PageStack } from '../../components/pageStack';
 
 function Calisto() {
     return (

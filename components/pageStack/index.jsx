@@ -1,13 +1,13 @@
 import * as React from "react";
 
-import { icons } from "../constants/index";
+import { icons } from "../../constants/index";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../views/screens/Home/index";
-import SolarSystem from "../views/screens/SolarSystem";
-import Videos from "../views/screens/Videos";
-import TabBarButton from "./tarBarButton";
-import AboutUs from "../views/screens/About";
+import Home from "../../views/screens/Home/index";
+import SolarSystem from "../../views/screens/SolarSystem";
+import Videos from "../../views/screens/Videos";
+import TabBarButton from "../tarBarButton";
+import AboutUs from "../../views/screens/About";
 
 const Tab = createBottomTabNavigator();
 
