@@ -1,10 +1,9 @@
 import React from 'react'
-
-import MainStackNavigator from './views/AppNavigation';
+import Routes from './views/navigation';
 
 export default function App() {
   return (
-    <MainStackNavigator />
+    <Routes />
   );
 }
 
